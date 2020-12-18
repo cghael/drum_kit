@@ -36,7 +36,7 @@ function makeSound(key) {
             break;
              
         default:
-            console.log(buttonLetter);
+            console.log(key);
             break;
     }
 }
