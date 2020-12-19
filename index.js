@@ -41,6 +41,14 @@ function makeSound(key) {
     }
 }
 
+function buttonAnimation(currentKey) {
+    var activeButton = document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed");
+    setTimeout(function() {
+        activeButton.classList.remove("pressed");
+    }, 100);
+}
+
 //Detecting button mouse click
 
 var buttons = document.querySelectorAll(".drum");
@@ -49,6 +57,7 @@ for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function () {
         var buttonLetter = this.innerHTML;
         makeSound(buttonLetter);
+        buttonAnimation(buttonLetter);
     });
 }
 
@@ -56,6 +65,7 @@ for (var i = 0; i < buttons.length; i++) {
 
 document.addEventListener("keydown", function(event) {
     makeSound(event.key);
+    buttonAnimation(event.key);
 });
 
 
